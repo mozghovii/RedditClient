@@ -13,30 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private lazy var navigationController = NavigationViewController(nibName: nil, bundle: nil)
 
+    private lazy var coordinator: AppCoordinator = {
+        let router = Router(presenter: navigationController)
+        
+        // api
+        let apiConfiguration = AppAPIConfiguration()
+        let api = AppAPI(with: apiConfiguration)
+        
+        let coordinator = AppCoordinator(with: router, api: api)
+        return coordinator
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // app coordinator
+        coordinator.start()
         
         // create a basic UIWindow and activate it
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        test()
+        
         return true
     }
     
-    func test() {
-        let apiConfiguration = AppAPIConfiguration()
-        let api = AppAPI(with: apiConfiguration)
-        let request = TestRequest()
-        api.send(request) { [weak self] result in
-            switch result {
-            case .success:
-                print("success")
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
 }
 

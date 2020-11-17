@@ -30,7 +30,6 @@ public struct URLEncoding: ParameterEncoding {
         return urlRequest
     }
     
-    
     private func query(_ parameters: [String: Any]) -> String {
         return parameters.map { "\($0)=\($1)" }.joined(separator: "&")
     }
