@@ -22,10 +22,7 @@ class AppAPI: API {
     required init(with configuration: APIConfiguration) {
         self.configuration = configuration
         // set current environment
-        
-        let config = URLSessionConfiguration.default
-        config.httpAdditionalHeaders = ["Content-Type":"application/json; charset=UTF-8"]
-        defaultSession = URLSession(configuration: config, delegate: nil, delegateQueue: nil)
+        defaultSession = URLSession(configuration: .default)
     }
     
     func setEnvironment(_ environment: APIEnvironment) {
@@ -41,7 +38,22 @@ class AppAPI: API {
         let preparedRequest = prepareRequest(endpoint, method: method, parameters: parameters, encoding: encoding)
         
         let task = defaultSession.dataTask(with: preparedRequest!, completionHandler: {(data, response, error) -> () in
-            print(String(decoding: data!, as: UTF8.self))
+            if let error = error {
+                completion(.failure(error))
+            }  else if let data = data {
+                if T.Response.self == APIResponseEmpty.self,
+                    let data = try? self.configuration.decoder.decode(T.Response.self, from: "{}".data(using: .utf8) ?? Data()) {
+                    completion(.success(data))
+                    return
+                }
+                // response with data
+                do {
+                    let data = try self.configuration.decoder.decode(T.Response.self, from: data)
+                    completion(.success(data))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
         })
         
         task.resume()

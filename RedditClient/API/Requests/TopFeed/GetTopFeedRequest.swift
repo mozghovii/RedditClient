@@ -1,15 +1,15 @@
 //
-//  TestRequest.swift
+//  GetTopFeedRequest.swift
 //  RedditClient
 //
-//  Created by Sergey Mozgovoy on 17.11.2020.
+//  Created by Sergey Mozgovoy on 18.11.2020.
 //
 
 import Foundation
 
-struct TestRequest: APIRequest {
+struct GetTopFeedRequest: APIRequest {
     
-    typealias Response = APIResponseEmpty
+    typealias Response = GetTopFeedResponse
     
     var method: HTTPMethod {
         return .get

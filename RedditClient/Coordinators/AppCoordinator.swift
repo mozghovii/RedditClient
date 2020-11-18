@@ -34,7 +34,7 @@ extension AppCoordinator {
         let coordinator = create(TopFeedCoordinator.self)
         coordinator.start()
         
-        let routerOptions = RouterOptions.init(operation: .root, animated: true, isNavigationBarHidden: true)
+        let routerOptions = RouterOptions.init(operation: .root, animated: true, isNavigationBarHidden: false)
         
         router.show(coordinator, options: routerOptions) { [weak self, weak coordinator] in
             coordinator?.router.hide(options: RouterOptions.init(operation: .present, animated: false, isNavigationBarHidden: false))

@@ -13,7 +13,7 @@ extension JSONEncoder {
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = .init(rawValue: 0)
         jsonEncoder.dateEncodingStrategy = .secondsSince1970
-        jsonEncoder.keyEncodingStrategy = .useDefaultKeys
+        jsonEncoder.keyEncodingStrategy = .convertToSnakeCase
         return jsonEncoder
     }
     

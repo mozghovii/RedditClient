@@ -9,7 +9,7 @@ import UIKit
 
 class TopFeedCoordinator: BaseCoordinator {
     override func start() {
-        let _ = instantiate(TopFeedViewController.self, from: .topFeed)
-
+        let viewController = instantiate(TopFeedViewController.self, from: .topFeed)
+        viewController.viewModel.api = api
     }
 }
