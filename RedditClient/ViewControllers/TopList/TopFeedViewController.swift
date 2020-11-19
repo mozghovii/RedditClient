@@ -7,12 +7,13 @@
 
 import UIKit
 
-class TopFeedViewController: UIViewController {
+final class TopFeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: TopFeedViewModel = TopFeedViewModel()
-    
+    private var refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,11 +28,17 @@ class TopFeedViewController: UIViewController {
     private func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
+            guard self?.refreshControl.isRefreshing ?? false else { return }
+            self?.refreshControl.endRefreshing()
         }
     }
+    
     private func setUpTableView() {
         tableView?.dataSource = viewModel
         tableView?.delegate = viewModel
+        tableView?.prefetchDataSource = viewModel
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(viewModel, action: #selector(viewModel.refreshData), for: UIControl.Event.valueChanged)
     }
 
 }

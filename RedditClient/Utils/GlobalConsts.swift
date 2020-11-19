@@ -8,10 +8,7 @@
 import Foundation
 
 enum GlobalConsts {
-    
-    // links
-    enum Links {}
-    
+
     // API
     enum API {
         static let baseEndpointURL: URL = URL(string: "https://www.reddit.com")!

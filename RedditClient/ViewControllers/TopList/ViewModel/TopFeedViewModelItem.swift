@@ -38,4 +38,8 @@ class TopFeedViewModelItem: ViewModelItem {
     init(_ models:[FeedDataModel]) {
         self.models = models
     }
+    
+    func appendModels(_ models: [FeedDataModel]) {
+        self.models.append(contentsOf: models)
+    }
 }

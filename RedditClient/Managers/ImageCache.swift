@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ImageCache: Cache {
+final class ImageCache: Cache {
     private let imageCache = NSCache<NSString, CacheItem>()
 
     func set<T>(_ object: T, key: String) where T : CacheItem {

@@ -27,7 +27,7 @@ public struct URLEncoding: ParameterEncoding {
             // TODO: If you need others methods you will be able to implement. You should fill httpBody
         }
         
-        return urlRequest
+        return preparedRequest
     }
     
     private func query(_ parameters: [String: Any]) -> String {

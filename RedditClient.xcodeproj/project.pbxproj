@@ -53,6 +53,9 @@
 		6D796EE5256473EB0041D98B /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796EE4256473EB0041D98B /* Identifiable.swift */; };
 		6D796EE9256474E00041D98B /* TopFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796EE8256474E00041D98B /* TopFeedViewModel.swift */; };
 		6D796EED256475840041D98B /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D796EEC256475840041D98B /* TableView.swift */; };
+		6DD7E6D92566D2AC00F5B9E6 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DD7E6D82566D2AC00F5B9E6 /* ImageViewer.storyboard */; };
+		6DD7E6DD2566D3CF00F5B9E6 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7E6DC2566D3CF00F5B9E6 /* ImageViewerViewController.swift */; };
+		6DD7E6E12566D3E500F5B9E6 /* ImageViewerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7E6E02566D3E500F5B9E6 /* ImageViewerCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +107,9 @@
 		6D796EE4256473EB0041D98B /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		6D796EE8256474E00041D98B /* TopFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFeedViewModel.swift; sourceTree = "<group>"; };
 		6D796EEC256475840041D98B /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		6DD7E6D82566D2AC00F5B9E6 /* ImageViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
+		6DD7E6DC2566D3CF00F5B9E6 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		6DD7E6E02566D3E500F5B9E6 /* ImageViewerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		6D796D582564199E0041D98B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6DD7E6DB2566D3B300F5B9E6 /* ImageViewer */,
 				6D796E5A25645EA80041D98B /* TopList */,
 				6D796D5A256419BD0041D98B /* NavigationControllers */,
 			);
@@ -270,6 +277,7 @@
 				6D796D48256419450041D98B /* Main.storyboard */,
 				6D796D4D256419470041D98B /* LaunchScreen.storyboard */,
 				6D796E6125645F090041D98B /* TopFeed.storyboard */,
+				6DD7E6D82566D2AC00F5B9E6 /* ImageViewer.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -321,6 +329,15 @@
 				6D53F04825653F70006A39A9 /* TopFeedViewModelItem.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6DD7E6DB2566D3B300F5B9E6 /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				6DD7E6DC2566D3CF00F5B9E6 /* ImageViewerViewController.swift */,
+				6DD7E6E02566D3E500F5B9E6 /* ImageViewerCoordinator.swift */,
+			);
+			path = ImageViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D796E6225645F090041D98B /* TopFeed.storyboard in Resources */,
+				6DD7E6D92566D2AC00F5B9E6 /* ImageViewer.storyboard in Resources */,
 				6D796D4F256419470041D98B /* LaunchScreen.storyboard in Resources */,
 				6D796D4C256419470041D98B /* Assets.xcassets in Resources */,
 				6D796D4A256419450041D98B /* Main.storyboard in Resources */,
@@ -402,6 +420,7 @@
 				6D53F04925653F70006A39A9 /* TopFeedViewModelItem.swift in Sources */,
 				6D796D5C256419BD0041D98B /* NavigationViewController.swift in Sources */,
 				6D53F1522565AB74006A39A9 /* CacheItem.swift in Sources */,
+				6DD7E6E12566D3E500F5B9E6 /* ImageViewerCoordinator.swift in Sources */,
 				6D53F12125659B59006A39A9 /* Date.swift in Sources */,
 				6D796E1125641C8A0041D98B /* AppAPI.swift in Sources */,
 				6D796E5825645E1E0041D98B /* UIViewController.swift in Sources */,
@@ -435,6 +454,7 @@
 				6D796EE5256473EB0041D98B /* Identifiable.swift in Sources */,
 				6D796E0C25641C8A0041D98B /* APIRequest.swift in Sources */,
 				6D53F0C22565787C006A39A9 /* GetTopFeedRequest.swift in Sources */,
+				6DD7E6DD2566D3CF00F5B9E6 /* ImageViewerViewController.swift in Sources */,
 				6D796E4E256448B40041D98B /* Presentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,7 +613,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozgovoy.RedditClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -613,7 +633,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozgovoy.RedditClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

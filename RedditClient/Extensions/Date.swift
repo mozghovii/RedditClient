@@ -9,10 +9,14 @@ import Foundation
 
 extension Date {
     
-    func convertToEntryDateString() -> String {
+    static private let timeFormatter: RelativeDateTimeFormatter = {
         let timeFormatter = RelativeDateTimeFormatter()
         timeFormatter.unitsStyle = .full
-        return timeFormatter.localizedString(for: self, relativeTo: Date())
+        return timeFormatter
+    }()
+    
+    func convertToEntryDateString() -> String {
+        return Self.timeFormatter.localizedString(for: self, relativeTo: Date())
     }
     
 }

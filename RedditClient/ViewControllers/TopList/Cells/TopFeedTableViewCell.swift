@@ -7,13 +7,19 @@
 
 import UIKit
 
-class TopFeedTableViewCell: UITableViewCell, Identifiable {
+protocol TopFeedTableViewCellDelegate: AnyObject {
+    func imagePressed(_ imageURl: String)
+}
+
+final class TopFeedTableViewCell: UITableViewCell, Identifiable {
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var entryDateLabel: UILabel!
     @IBOutlet weak var numberOfCommentsLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    
+    weak var delegate: TopFeedTableViewCellDelegate?
     
     var model: FeedDataModel? {
         didSet {
@@ -23,20 +29,19 @@ class TopFeedTableViewCell: UITableViewCell, Identifiable {
             entryDateLabel.text = feedModel.entryDate
             numberOfCommentsLabel.text = feedModel.numbersOfComments
             if let stringUrl = feedModel.thumbnail, stringUrl.isHttp {
-               thumbnailImageView.setImage(by: stringUrl)
+                thumbnailImageView.setImage(by: stringUrl)
+            } else {
+                thumbnailImageView.image = nil
             }
             
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBAction func imagePressed(_ sender: Any) {
+        guard let feedModel = model?.data,
+              let stringUrl = feedModel.thumbnail,
+              stringUrl.isHttp else { return }
+        delegate?.imagePressed(stringUrl)
         
-        // Configure the view for the selected state
     }
-    
 }

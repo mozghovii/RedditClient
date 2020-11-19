@@ -8,7 +8,8 @@
 import UIKit
 
 class AppCoordinator: BaseCoordinator {
-    
+    // Point of entry. You can expand if you need deeplink, app state , etc
+
     enum EntryPoint {
         case topFeed
     }

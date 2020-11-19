@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ds-AL-EID">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Thumbnail-->
+        <scene sceneID="DcM-qV-j5X">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewerViewController" id="6ds-AL-EID" customClass="ImageViewerViewController" customModule="RedditClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ED1-bY-VWI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2v-pL-Jzy">
+                                <rect key="frame" x="20.5" y="99.5" width="373" height="697"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ut4-Vn-jnJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K2v-pL-Jzy" firstAttribute="centerX" secondItem="ED1-bY-VWI" secondAttribute="centerX" id="0FV-qe-DG4"/>
+                            <constraint firstItem="K2v-pL-Jzy" firstAttribute="centerY" secondItem="ED1-bY-VWI" secondAttribute="centerY" id="QLN-de-5Or"/>
+                            <constraint firstItem="K2v-pL-Jzy" firstAttribute="height" secondItem="Ut4-Vn-jnJ" secondAttribute="height" multiplier="0.9" id="xSS-QB-LHu"/>
+                            <constraint firstItem="K2v-pL-Jzy" firstAttribute="width" secondItem="ED1-bY-VWI" secondAttribute="width" multiplier="0.9" id="yJr-eW-G3Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Thumbnail" id="vww-nD-JXE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="G1q-dF-CQK">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="6ds-AL-EID" id="2bg-iv-WBn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="K2v-pL-Jzy" id="0pw-Fz-AmR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3e-SY-Wlx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221.73913043478262" y="147.99107142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

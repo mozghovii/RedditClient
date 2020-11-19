@@ -10,7 +10,7 @@ import Foundation
 struct GetTopFeedRequest: APIRequest {
     
     typealias Response = GetTopFeedResponse
-    
+    private(set) var after: String?
     var method: HTTPMethod {
         return .get
     }
@@ -19,4 +19,8 @@ struct GetTopFeedRequest: APIRequest {
         return "/top.json"
     }
     
+    init(by after: String?) {
+        self.after = after
+    }
+
 }

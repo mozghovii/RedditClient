@@ -25,7 +25,8 @@ protocol APIRequest: Encodable {
     var path: String { get }
     var method: HTTPMethod { get }
     var parameterEncoding: ParameterEncoding { get }
-
+    func parameters() -> Any?
+    
 }
 
 // MARK: - Defaults
@@ -50,7 +51,7 @@ extension APIRequest {
         guard let data = try? jsonEncoder.encode(parameters) else {
             return nil
         }
-
+        
         return try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
     }
     

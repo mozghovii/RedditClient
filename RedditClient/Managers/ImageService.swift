@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageService: NSObject {
+final class ImageService: NSObject {
     
     private let cache = ImageCache()
     
